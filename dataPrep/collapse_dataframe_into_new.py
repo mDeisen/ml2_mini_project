@@ -1,25 +1,9 @@
 import pandas as pd
 
-# Choose the column that data should be grouped by (such as countries, regions
-# etc. Assumes, that a column contains multiple groups.
-groupby = 'country_region'
-
-# Choose the column that should be checked against a condidion to collapse the
-# data
-collapse_on = 'Cases'
-
-# Choose the input file
-df = pd.read_csv('./2020-05-03_GoogleMobilityDataGlobal_joined.csv')
-
-# Choose the threshhold that each group should start on (e.g. start at 50
-# cases)
-threshhold = 50
-
-
-# Takes a dataframe, the groupby and collapse_on parameter and a threshold
+# Takes a dataframe, the groupby, collapse_on and a threshold parameter
 # Returns a dataframe that contains the grouped by data from the point >=
 # threshhold. Starting at index 0 for each group.
-def collapse_dataframe_into_new(df, groupby, collapse_on, threshhold):
+def collapse_dataframe_into_new(df: pd.DataFrame, groupby: str, collapse_on: str, threshhold: int) -> pd.DataFrame:
     ids = df[groupby].unique()
     output_df = pd.DataFrame()
 
@@ -38,6 +22,3 @@ def collapse_dataframe_into_new(df, groupby, collapse_on, threshhold):
                 break
     return output_df
 
-
-collapse_dataframe_into_new(df, groupby, collapse_on, threshhold) \
-    .to_csv('collapse_on_' + collapse_on + '.csv')
