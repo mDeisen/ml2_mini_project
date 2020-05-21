@@ -1,10 +1,10 @@
 import pandas as pd
 
-from team_project.dataPrep.apply_moving_average import apply_moving_average
-from team_project.dataPrep.apply_pct_change import apply_pct_change
-from team_project.dataPrep.collapse_dataframe_into_new import \
+from ml2_mini_project.dataPrep.apply_moving_average import apply_moving_average
+from ml2_mini_project.dataPrep.apply_pct_change import apply_pct_change
+from ml2_mini_project.dataPrep.collapse_dataframe_into_new import \
     collapse_dataframe_into_new
-from team_project.dataPrep.normalize_by_columns import normalize_by_columns
+from ml2_mini_project.dataPrep.normalize_by_columns import normalize_by_columns
 
 # Choose the column that data should be grouped by (such as countries, regions
 # etc. Assumes, that a column contains multiple groups.
